@@ -30,7 +30,7 @@ export default function ChatInterface() {
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const langflowClient = new LangflowClient();
+  const langflowClient = new LangflowClient("default-user");
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
