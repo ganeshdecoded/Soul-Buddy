@@ -1,9 +1,16 @@
 import { NextResponse } from 'next/server';
 
-const LANGFLOW_URL = 'https://api.langflow.astra.datastax.com';
-const FLOW_ID = '2fca8d2a-4453-4e82-b6dc-ef9b6174e418';
-const LANGFLOW_ID = '3ddc1b67-714d-4aa3-8c18-6e6c693596c5';
-const APPLICATION_TOKEN = 'AstraCS:nZsKRLRzmKSvZFlCNxnlcbhw:310c958837e33de2cb3cd527118edcdf3567fa4cc6c2f24aa74fdc178ef37eec';
+if (!process.env.NEXT_PUBLIC_LANGFLOW_API_URL || 
+    !process.env.NEXT_PUBLIC_LANGFLOW_FLOW_ID || 
+    !process.env.NEXT_PUBLIC_LANGFLOW_ID || 
+    !process.env.NEXT_PUBLIC_LANGFLOW_TOKEN) {
+  throw new Error('Missing required environment variables for Langflow');
+}
+
+const LANGFLOW_URL = process.env.NEXT_PUBLIC_LANGFLOW_API_URL;
+const FLOW_ID = process.env.NEXT_PUBLIC_LANGFLOW_FLOW_ID;
+const LANGFLOW_ID = process.env.NEXT_PUBLIC_LANGFLOW_ID;
+const APPLICATION_TOKEN = process.env.NEXT_PUBLIC_LANGFLOW_TOKEN;
 
 export async function POST(request: Request) {
   try {
@@ -25,7 +32,7 @@ export async function POST(request: Request) {
           "add_current_date_tool": true,
           "agent_description": "A helpful assistant with access to the following tools:",
           "agent_llm": "OpenAI",
-          "api_key": "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",
+          "api_key": process.env.OPENAI_API_KEY,
           "handle_parsing_errors": true,
           "input_value": "",
           "json_mode": false,
@@ -47,13 +54,13 @@ export async function POST(request: Request) {
           "verbose": true
         },
         "AstraDBToolComponent-0HdPJ": {
-          "api_endpoint": "https://3c550a2b-8ffe-4186-82d9-1a62c66a3566-us-east-2.apps.astra.datastax.com",
+          "api_endpoint": process.env.ASTRA_DB_ENDPOINT,
           "collection_name": "horoscope_data",
           "namespace": "default_keyspace",
           "number_of_results": 5,
           "projection_attributes": "*",
           "static_filters": {},
-          "token": "ASTRA_DB_APPLICATION_TOKEN",
+          "token": process.env.ASTRA_DB_TOKEN,
           "tool_description": "providing data for chatbot",
           "tool_name": "chat_data",
           "tool_params": {
