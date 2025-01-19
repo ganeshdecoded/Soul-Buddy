@@ -14,8 +14,9 @@
     "@mediapipe/drawing_utils": "^0.3.1675466124",
     "@mediapipe/hands": "^0.4.1675469240",
     "@radix-ui/react-tabs": "^1.1.2",
-    "@react-three/drei": "9.65.3",
-    "@react-three/fiber": "8.12.0",
+    "@react-three/drei": "9.88.0",
+    "@react-three/fiber": "8.15.11",
+    "@types/three": "0.158.2",
     "canvas": "^3.0.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.18.1",
@@ -26,14 +27,13 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwind-merge": "^2.6.0",
-    "three": "0.150.1"
+    "three": "0.158.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.0",
-    "@types/three": "0.150.1",
     "eslint": "8.50.0",
     "eslint-config-next": "13.4.19",
     "postcss": "^8",
@@ -43,8 +43,9 @@
   "resolutions": {
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "@react-three/drei": "9.65.3",
-    "@react-three/fiber": "8.12.0",
-    "three": "0.150.1"
+    "@react-three/drei": "9.88.0",
+    "@react-three/fiber": "8.15.11",
+    "three": "0.158.0",
+    "@types/three": "0.158.2"
   }
 }
